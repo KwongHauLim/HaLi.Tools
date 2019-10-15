@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HaLi.Tools.Encryption\HaLi.Tools.Encryption\HaLi.Tools.Encryption.csproj">
+    <ProjectReference Include="..\HaLi.Tools.Encryption\HaLi.Tools.Encryption.csproj">
       <Project>{06856da9-fa71-44fc-b848-873c9f77b1eb}</Project>
       <Name>HaLi.Tools.Encryption</Name>
     </ProjectReference>
