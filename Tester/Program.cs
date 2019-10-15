@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using HaLi.Tools.Encryption;
 using HaLi.Tools.Hashcode;
 

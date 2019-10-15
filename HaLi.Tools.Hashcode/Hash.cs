@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HaLi.Tools.Hashcode
+﻿namespace HaLi.Tools.Hashcode
 {
     public interface IHashCalc
     {
         string GetHash(string str);
     }
 
-    public class Hash 
+    public class Hash
     {
         private static Hash _ptr = null;
         public static Hash Share => _ptr = _ptr ?? new Hash();
@@ -22,7 +16,7 @@ namespace HaLi.Tools.Hashcode
         {
             Algorithm = new SHA1();
         }
-        
+
         public static string GetHash(string str)
             => Share.Algorithm.GetHash(str);
     }
