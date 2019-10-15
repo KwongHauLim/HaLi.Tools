@@ -11,7 +11,19 @@ namespace HaLi.Tools.Hashcode
         string GetHash(byte[] binary);
     }
 
-    public class Hash
+    public class Hash 
     {
+        private static Hash _ptr = null;
+        public static Hash Share => _ptr = _ptr ?? new Hash();
+
+        public IHashCalc Algorithm { get; set; }
+
+        private Hash()
+        {
+            Algorithm = new SHA1();
+        }
+
+        public static string GetHash(byte[] binary)
+            => Share.Algorithm.GetHash(binary);
     }
 }

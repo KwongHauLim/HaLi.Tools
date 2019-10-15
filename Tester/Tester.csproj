@@ -54,6 +54,10 @@
       <Project>{06856da9-fa71-44fc-b848-873c9f77b1eb}</Project>
       <Name>HaLi.Tools.Encryption</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HaLi.Tools.Hashcode\HaLi.Tools.Hashcode.csproj">
+      <Project>{F45AD3AC-F7F6-43AD-A1E0-F54586005FF6}</Project>
+      <Name>HaLi.Tools.Hashcode</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

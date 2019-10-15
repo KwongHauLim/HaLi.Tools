@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Text;
 using HaLi.Tools.Encryption;
+using HaLi.Tools.Hashcode;
 
 namespace Tester
 {
@@ -11,6 +13,8 @@ namespace Tester
             Console.WriteLine(secret);
             string visible = Crypto.Decrypt(secret);
             Console.WriteLine(visible);
+            string sha1 = Hash.GetHash(Encoding.UTF8.GetBytes(visible));
+            Console.WriteLine($"sha1:{sha1}");
             Console.ReadKey();
         }
     }
