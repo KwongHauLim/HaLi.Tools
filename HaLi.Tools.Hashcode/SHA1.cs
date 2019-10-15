@@ -11,20 +11,15 @@ namespace HaLi.Tools.Hashcode
     {
         public Encoding Encoding { get; set; } = Encoding.UTF8;
         public bool UpperCase { get; set; } = true;
-
-        public string GetHash(byte[] binary)
+        
+        public string GetHash(string str)
         {
             using (var sha1 = new SHA1Managed())
             {
-                var hash = sha1.ComputeHash(binary);
+                var hash = sha1.ComputeHash(Encoding.GetBytes(str));
                 var format = UpperCase ? "X2" : "x2";
                 return string.Concat(hash.Select(b => b.ToString(format)));
             }
-        }
-
-        public string GetHash(string str)
-        {
-            return GetHash(Encoding.GetBytes(str));
         }
     }
 }

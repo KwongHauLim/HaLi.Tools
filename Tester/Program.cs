@@ -13,7 +13,7 @@ namespace Tester
             Console.WriteLine(secret);
             string visible = Crypto.Decrypt(secret);
             Console.WriteLine(visible);
-            string sha1 = Hash.GetHash(Encoding.UTF8.GetBytes(visible));
+            string sha1 = Hash.GetHash(visible);
             Console.WriteLine($"sha1:{sha1}");
             Console.ReadKey();
         }
