@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AES.cs" />
     <Compile Include="Base64.cs" />
+    <Compile Include="Cipher.cs" />
     <Compile Include="Crypto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
