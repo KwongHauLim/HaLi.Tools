@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace HaLi.Tools.Encryption
 {
@@ -12,11 +11,11 @@ namespace HaLi.Tools.Encryption
         {
             public byte[] Forward { get; private set; } = new byte[256];
             public byte[] Reverse { get; private set; } = new byte[256];
-            
+
             public CryptoBook()
             {
-                var tmp = new List<int>(Enumerable.Range(0, 256));
-                var rand = new Random();
+                List<int> tmp = new List<int>(Enumerable.Range(0, 256));
+                Random rand = new Random();
                 int idx;
                 byte b;
 

@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 
 namespace HaLi.Tools.Encryption
 {
-    public sealed class AES : ICrypto
+    public class AES : ICrypto
     {
         public class CryptoBook
         {

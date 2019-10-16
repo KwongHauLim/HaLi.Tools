@@ -45,6 +45,7 @@
     <Compile Include="Base64.cs" />
     <Compile Include="Cipher.cs" />
     <Compile Include="Crypto.cs" />
+    <Compile Include="GZip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
