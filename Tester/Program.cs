@@ -14,8 +14,13 @@ namespace Tester
             Console.WriteLine(visible);
             string sha1 = Hash.GetHash(visible);
             Console.WriteLine($"sha1:{sha1}");
-            string cipher = new Cipher().GetHash(visible);
+            string cipher = new HaLi.Tools.Hashcode.Cipher().GetHash(visible);
             Console.WriteLine($"cipher:{cipher}");
+            GZip gZip = new GZip();
+            string zip = gZip.Encrypt(visible);
+            Console.WriteLine($"zip:{zip}");
+            string unzip = gZip.Decrypt(zip);
+            Console.WriteLine($"unzip:{unzip}");
             Console.ReadKey();
         }
     }
