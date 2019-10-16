@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace HaLi.Tools.Extends
 {
+    [DebuggerStepThrough]
     public static class ExtendList
     {
         public static IEnumerable<int> Range(int count, int start = 0)
