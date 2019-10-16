@@ -11,7 +11,8 @@ namespace HaLi.Tools.Encryption
 
         public string Decrypt(string str)
         {
-            throw new NotImplementedException();
+            byte[] bin = Convert.FromBase64String(str);
+            return Encoding.GetString(Decompress(bin));
         }
 
         public string Encrypt(string str)
@@ -26,6 +27,18 @@ namespace HaLi.Tools.Encryption
             using (GZipStream gz = new GZipStream(ms, CompressionLevel.Fastest, false))
             {
                 gz.Write(binary, 0, binary.Length);
+                gz.Close();
+                return ms.ToArray();
+            }
+        }
+
+        public byte[] Decompress(byte[] binary)
+        {
+            using (MemoryStream buffer = new MemoryStream(binary))
+            using (GZipStream gz = new GZipStream(buffer, CompressionMode.Decompress))
+            using (MemoryStream ms = new MemoryStream())
+            {
+                gz.CopyTo(ms);
                 return ms.ToArray();
             }
         }
