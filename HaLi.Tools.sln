@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{7959C691-D031-4C99-BE4F-EFF4F6167BBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Encryption", "HaLi.Tools.Encryption\HaLi.Tools.Encryption.csproj", "{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.Encryption", "HaLi.Tools.Encryption\HaLi.Tools.Encryption.csproj", "{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Hashcode", "HaLi.Tools.Hashcode\HaLi.Tools.Hashcode.csproj", "{209FBAF5-825F-486A-9F62-FC501A6726C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.Hashcode", "HaLi.Tools.Hashcode\HaLi.Tools.Hashcode.csproj", "{209FBAF5-825F-486A-9F62-FC501A6726C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Extends", "HaLi.Tools.Extends\HaLi.Tools.Extends.csproj", "{46CF4406-17DC-4350-B4FA-46D344FB58BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.Extends", "HaLi.Tools.Extends\HaLi.Tools.Extends.csproj", "{46CF4406-17DC-4350-B4FA-46D344FB58BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.EasyLock", "HaLi.Tools.EasyLock\HaLi.Tools.EasyLock.csproj", "{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7959C691-D031-4C99-BE4F-EFF4F6167BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7959C691-D031-4C99-BE4F-EFF4F6167BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7959C691-D031-4C99-BE4F-EFF4F6167BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7959C691-D031-4C99-BE4F-EFF4F6167BBF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{46CF4406-17DC-4350-B4FA-46D344FB58BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CF4406-17DC-4350-B4FA-46D344FB58BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46CF4406-17DC-4350-B4FA-46D344FB58BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
