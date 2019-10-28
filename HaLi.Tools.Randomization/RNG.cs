@@ -20,12 +20,12 @@ namespace HaLi.Tools.Randomization
         public RNG(uint seed)
         {
             Seed = seed;
-            var first = new XorShift(seed);
+            var first = new XorWow(seed);
             Pool.Add(first);
 
             for (int i = 1; i < 4; i++)
             {
-                Pool.Add(new XorShift(first.UInt32));
+                Pool.Add(new XorWow(first.UInt32));
             }
         }
 
