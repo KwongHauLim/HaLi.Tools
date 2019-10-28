@@ -4,6 +4,10 @@ using System.Text;
 
 namespace HaLi.Tools.Randomization.Algorithms
 {
+    /// <summary>
+    /// xor-shift pseudo random number generator (RNG)
+    /// <see cref="http://en.wikipedia.org/wiki/Xorshift"/> 
+    /// </summary>
     public class XorShift : IRng
     {
         private const double _BITSPACING_ = 1.0 / ((double)uint.MaxValue + 1.0);
