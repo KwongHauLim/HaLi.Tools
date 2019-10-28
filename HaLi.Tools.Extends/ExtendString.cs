@@ -241,12 +241,5 @@ namespace HaLi.Tools.Extends
 
         public static bool SurroundWith(this string s, string start, string end)
             => s.StartsWith(start) && s.EndsWith(end);
-
-        public static string Shuffle(this string s)
-        {
-            var list = new List<char>(s.ToCharArray());
-            list.Shuffle();
-            return string.Join(string.Empty, list.ToArray());
-        }
     }
 }

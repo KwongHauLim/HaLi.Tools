@@ -2,13 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <Authors>Kwong Hau Lim</Authors>
     <AssemblyVersion>1.0.0.2</AssemblyVersion>
     <FileVersion>1.0.0.2</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HaLi.Tools.Extends\HaLi.Tools.Extends.csproj" />
+    <ProjectReference Include="..\HaLi.Tools.EasyLock\HaLi.Tools.EasyLock.csproj" />
   </ItemGroup>
 
 </Project>

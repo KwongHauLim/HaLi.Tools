@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Hashcode", "HaLi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Extends", "HaLi.Tools.Extends\HaLi.Tools.Extends.csproj", "{46CF4406-17DC-4350-B4FA-46D344FB58BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.EasyLock", "HaLi.Tools.EasyLock\HaLi.Tools.EasyLock.csproj", "{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.EasyLock", "HaLi.Tools.EasyLock\HaLi.Tools.EasyLock.csproj", "{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.Randomization", "HaLi.Tools.Randomization\HaLi.Tools.Randomization.csproj", "{4A553CA3-A6B5-4C94-B011-0B3224283306}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A553CA3-A6B5-4C94-B011-0B3224283306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A553CA3-A6B5-4C94-B011-0B3224283306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A553CA3-A6B5-4C94-B011-0B3224283306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A553CA3-A6B5-4C94-B011-0B3224283306}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

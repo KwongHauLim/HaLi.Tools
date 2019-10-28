@@ -10,11 +10,16 @@ namespace HaLi.Tools.Extends
     [DebuggerStepThrough]
     public static class ExtendList
     {
-        public static IEnumerable<int> Range(int count, int start = 0)
+        public static IEnumerable<int> Range(int count, int start = 0, bool full = false)
         {
             for (int i = 0; i < count; i++)
             {
                 yield return start + i;
+            }
+
+            for (int i = 0; i < start && full; i++)
+            {
+                yield return  i;
             }
         }
 
@@ -57,27 +62,7 @@ namespace HaLi.Tools.Extends
 
             return lo;
         }
-
-        public static void Shuffle<T>(this List<T> list)
-        {
-            // Fisher-Yates shuffle
-            // http://en.wikipedia.org/wiki/Fisher-Yates_shuffle
-
-            Random rand = new Random();
-            T tmp;
-            int idx;
-            for (int i = list.Count - 1; i > 0; i--)
-            {
-                idx = rand.Next(i);
-                if (idx != i)
-                {
-                    tmp = list[idx];
-                    list[idx] = list[i];
-                    list[i] = tmp; 
-                }
-            }
-        }
-
+        
         public static T Random<T>(this List<T> list)
         {
             if (list.Count > 0)
