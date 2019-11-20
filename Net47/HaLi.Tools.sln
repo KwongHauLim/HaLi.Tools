@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.SecretMemory", "HaLi.Tools.SecretMemory\HaLi.Tools.SecretMemory.csproj", "{D47078DC-7A8A-4811-962E-A4FC6974271E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{854F0A47-70F9-43C6-B892-B67C50FFB032}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D47078DC-7A8A-4811-962E-A4FC6974271E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D47078DC-7A8A-4811-962E-A4FC6974271E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D47078DC-7A8A-4811-962E-A4FC6974271E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D47078DC-7A8A-4811-962E-A4FC6974271E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{854F0A47-70F9-43C6-B892-B67C50FFB032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854F0A47-70F9-43C6-B892-B67C50FFB032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854F0A47-70F9-43C6-B892-B67C50FFB032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854F0A47-70F9-43C6-B892-B67C50FFB032}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D38FF6A8-3FF5-4E0B-AA65-4A6050BC6CB2}
+	EndGlobalSection
+EndGlobal
