@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HaLi.Tools.SecretMemory")]
-[assembly: AssemblyDescription("Library of Variable hiding")]
+[assembly: AssemblyTitle("HaLi.Tools.Randomization")]
+[assembly: AssemblyDescription("Library of Randomization")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HaLi.Tools.SecretMemory")]
+[assembly: AssemblyProduct("HaLi.Tools.Randomization")]
 [assembly: AssemblyCopyright("Copyright © Kwong Hau Lim 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d47078dc-7a8a-4811-962e-a4fc6974271e")]
+[assembly: Guid("c5db1261-90e8-49a8-8a9e-709d63b88dc9")]
 
 // Version information for an assembly consists of the following four values:
 //

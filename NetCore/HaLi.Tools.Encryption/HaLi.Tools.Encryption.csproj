@@ -4,10 +4,20 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyVersion>1.0.0.2</AssemblyVersion>
     <FileVersion>1.0.0.2</FileVersion>
+    <Copyright>Copyright © Kwong Hau Lim 2019</Copyright>
+    <Authors>Kwong Hau Lim</Authors>
+    <Description>Library of Encryption, provide simple way to encrypt or decrypt</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>false</Optimize>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
 </Project>

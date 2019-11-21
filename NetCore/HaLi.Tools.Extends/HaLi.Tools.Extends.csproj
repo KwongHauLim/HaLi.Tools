@@ -4,6 +4,19 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyVersion>1.0.0.2</AssemblyVersion>
     <FileVersion>1.0.0.2</FileVersion>
+    <Authors>Kwong Hau Lim</Authors>
+    <Copyright>Copyright © Kwong Hau Lim 2019</Copyright>
+    <Description>Library of extension, provide extra methods to usual class</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
 </Project>
