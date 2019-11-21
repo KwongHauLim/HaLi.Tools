@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using HaLi.Tools.Randomization;
 
 namespace HaLi.Tools.SecretMemory
 {
@@ -32,7 +33,7 @@ namespace HaLi.Tools.SecretMemory
             Free = size;
 
             prime = Prime.Get();
-            next = Environment.TickCount % size;
+            next = RNG.Int32 % size;
 
             var zero = S.CalcHash(new byte[32]);
             for (int i = 0; i < hash.Length; i++)
