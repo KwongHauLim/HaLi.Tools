@@ -7,7 +7,6 @@ namespace HaLi.Tools.SecretMemory
 {
     public class Block
     {
-        private static readonly int[] PRIME = new int[] { 3, 7, 11, 13, 17, 23, 31, 37, 41, 47 };
         public BitArray used;
         public byte[] data;
         public int[] hash;
@@ -32,9 +31,8 @@ namespace HaLi.Tools.SecretMemory
             hash = new int[size / 4];
             Free = size;
 
-            int tick = Environment.TickCount;
-            prime = PRIME[tick % PRIME.Length];
-            next = tick % size;
+            prime = Prime.Get();
+            next = Environment.TickCount % size;
 
             var zero = S.CalcHash(new byte[32]);
             for (int i = 0; i < hash.Length; i++)
