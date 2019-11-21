@@ -12,13 +12,13 @@ namespace HaLi.Tools.SecretMemory
         private static readonly int[] PRIME = new int[] { 3, 7, 11, 13, 17, 23, 31, 37, 41, 47 };
 
         public static int Get()
-            => PRIME[RNG.Int32 % PRIME.Length];
+            => PRIME[RNG.Next(0,PRIME.Length)];
 
         public static int[] GetShuffle(int size)
         {
             int[] list = new int[size];
             int prime = Get();
-            int next = RNG.Int32 % size;
+            int next = RNG.Next(0, size);
 
             for (int i = 0; i < size; i++)
             {

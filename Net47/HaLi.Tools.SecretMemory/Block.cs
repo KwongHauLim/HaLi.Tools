@@ -10,7 +10,6 @@ namespace HaLi.Tools.SecretMemory
     {
         public BitArray used;
         public byte[] data;
-        public int[] hash;
 
         public int Free { get; internal set; }
 
@@ -18,28 +17,21 @@ namespace HaLi.Tools.SecretMemory
         private int prime = 1;
         private object locker = new object();
 
+        internal event EventHandler OnWrite;
+        internal event EventHandler OnRead;
+
         public Block() : this(1024) { }
         public Block(int size)
         {
             if (size <= 0)
                 size = 1024;
-            int r = 4 - (size % 4);
-            if (r > 0 && r < 4)
-                size += r;
 
             used = new BitArray(size, false);
             data = new byte[size];
-            hash = new int[size / 4];
             Free = size;
 
             prime = Prime.Get();
-            next = RNG.Int32 % size;
-
-            var zero = S.CalcHash(new byte[32]);
-            for (int i = 0; i < hash.Length; i++)
-            {
-                hash[i] = zero;
-            }
+            next = RNG.Next(0, size);
         }
 
         internal bool Alloc(out int pos)
@@ -62,28 +54,22 @@ namespace HaLi.Tools.SecretMemory
         {
             used[position] = false;
             Free++;
-            Console.WriteLine($"Relase:{position}");
         }
 
-        internal bool Write(int p, byte value)
+        internal void Write(int p, byte value)
         {
             data[p] = value;
 
-            // index  99 / 4 = 24
-            int here = p / 4;
-            int last = here - 1;
-            if (last < 0) last = 255;
-
-            Hash(p, out int low, out int high);
-            hash[here] = low;
-            hash[last] = high;
-
+            if (OnWrite != null)
+                OnWrite(this, EventArgs.Empty);
+            
             Free--;
-            return true;
         }
 
         internal byte Read(int p)
         {
+            if (OnRead != null)
+                OnRead(this, EventArgs.Empty);
             return data[p];
         }
 
@@ -96,46 +82,10 @@ namespace HaLi.Tools.SecretMemory
 
         private int Adjust(int idx)
         {
-            while (idx < 0) return idx + 1024;
-            while (idx >= 1024) return idx - 1024;
+            int size = data.Length;
+            while (idx < 0) return idx + size;
+            while (idx >= size) return idx - size;
             return idx;
-        }
-
-        public void Hash(int p, out int low, out int high)
-        {
-            // case 0
-            // 0 1 2 3 4 5 6 7
-            // 1020 1021 1022 1023 0 1 2 3
-
-            // case 99
-            // 96 97 98 99 100 101 102 103
-            // 92 93 94 95 96 97 98 99
-            p = p - (p % 4);
-
-            low = S.CalcHash(
-                new int[8]
-                {
-                    data[Adjust(p-4)],
-                    data[Adjust(p-3)],
-                    data[Adjust(p-2)],
-                    data[Adjust(p-1)],
-                    data[Adjust(p)],
-                    data[Adjust(p+1)],
-                    data[Adjust(p+2)],
-                    data[Adjust(p+3)],
-                });
-            high = S.CalcHash(
-                new int[8]
-                {
-                    data[Adjust(p)],
-                    data[Adjust(p+1)],
-                    data[Adjust(p+2)],
-                    data[Adjust(p+3)],
-                    data[Adjust(p+4)],
-                    data[Adjust(p+5)],
-                    data[Adjust(p+6)],
-                    data[Adjust(p+7)],
-                });
         }
     }
 }

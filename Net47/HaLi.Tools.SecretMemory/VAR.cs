@@ -53,7 +53,7 @@ namespace HaLi.Tools.SecretMemory
 
         private Data Alloc()
         {
-            Block block = S.GetFreeBlock();
+            Block block = Spy.GetFreeBlock();
             if (block.Alloc(out int pos))
             {
                 return new Data
@@ -83,5 +83,7 @@ namespace HaLi.Tools.SecretMemory
                 Array.Resize(ref binary, Size);
             return binary;
         }
+
+        public override string ToString() => Value.ToString();
     }
 }

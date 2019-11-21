@@ -14,27 +14,5 @@ namespace HaLi.Tools.SecretMemory
         public Warehouse()
         {
         }
-
-    }
-
-    internal static class S
-    {
-        internal static Warehouse Library => Warehouse.Share.Value;
-        internal static Memory Memory => Library.Memory;
-        internal static Block GetFreeBlock() => Memory.GetFreeBlock();
-
-        public static int CalcHash(byte[] binary) => BitConverter.ToInt32(Warehouse.Share.Value.Hash64.ComputeHash(binary), 0);
-        public static int CalcHash(int[] array)
-        {
-            byte[] binary = new byte[array.Length * 4];
-            for (int i = 0; i < array.Length; i++)
-            {
-                Buffer.BlockCopy(
-                    BitConverter.GetBytes(array[i]), 0,
-                    binary, i * 4,
-                    4);
-            }
-            return CalcHash(binary);
-        }
     }
 }

@@ -29,6 +29,7 @@ namespace HaLi.Tools.SecretMemory
                 block = new Block();
                 Blocks.Add(block);
                 pointer = Prime.GetShuffle(Blocks.Count);
+                Spy.Protect.Add(block);
             }
 
             return block;
