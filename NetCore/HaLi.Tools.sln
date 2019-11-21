@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Encryption", "HaLi.Tools.Encryption\HaLi.Tools.Encryption.csproj", "{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Hashcode", "HaLi.Tools.Hashcode\HaLi.Tools.Hashcode.csproj", "{209FBAF5-825F-486A-9F62-FC501A6726C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Extends", "HaLi.Tools.Extends\HaLi.Tools.Extends.csproj", "{46CF4406-17DC-4350-B4FA-46D344FB58BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.EasyLock", "HaLi.Tools.EasyLock\HaLi.Tools.EasyLock.csproj", "{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Randomization", "HaLi.Tools.Randomization\HaLi.Tools.Randomization.csproj", "{4A553CA3-A6B5-4C94-B011-0B3224283306}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tester", "Tester\Tester.csproj", "{BF781461-91F7-4DA3-8EE0-B4F4E03B2118}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA1BD0A-F488-4E3A-9651-29C6DD12E3CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{209FBAF5-825F-486A-9F62-FC501A6726C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{209FBAF5-825F-486A-9F62-FC501A6726C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{209FBAF5-825F-486A-9F62-FC501A6726C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{209FBAF5-825F-486A-9F62-FC501A6726C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46CF4406-17DC-4350-B4FA-46D344FB58BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CF4406-17DC-4350-B4FA-46D344FB58BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CF4406-17DC-4350-B4FA-46D344FB58BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CF4406-17DC-4350-B4FA-46D344FB58BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DBB01E8-E309-4570-9A23-9F8780DDF9F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A553CA3-A6B5-4C94-B011-0B3224283306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A553CA3-A6B5-4C94-B011-0B3224283306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A553CA3-A6B5-4C94-B011-0B3224283306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A553CA3-A6B5-4C94-B011-0B3224283306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF781461-91F7-4DA3-8EE0-B4F4E03B2118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF781461-91F7-4DA3-8EE0-B4F4E03B2118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF781461-91F7-4DA3-8EE0-B4F4E03B2118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF781461-91F7-4DA3-8EE0-B4F4E03B2118}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C9493F0-A8E1-4773-8872-3AF04A327A0A}
+	EndGlobalSection
+EndGlobal
