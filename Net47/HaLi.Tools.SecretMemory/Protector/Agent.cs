@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HaLi.Tools.SecretMemory.Protector
 {
@@ -18,17 +14,28 @@ namespace HaLi.Tools.SecretMemory.Protector
         public Agent(Block block)
         {
             Block = block;
-            block.OnWrite += Block_OnWrite;
-            block.OnRead += Block_OnRead;
+            block.BeforeWrite += Block_BeforeWrite;
+            block.AfterWrite += Block_AfterWrite;
+            block.BeforeRead += Block_BeforeRead;
+            block.AfterRead += Block_AfterRead;
         }
 
-        private void Block_OnRead(object sender, EventArgs e)
+        private void Block_BeforeRead(object sender, EventArgs e)
         {
-            unchecked { Read++; }
             FindShake = Hash != Spy.CalcHash(Block.data);
         }
 
-        private void Block_OnWrite(object sender, EventArgs e)
+        private void Block_AfterRead(object sender, EventArgs e)
+        {
+            unchecked { Read++; }
+        }
+        
+        private void Block_BeforeWrite(object sender, EventArgs e)
+        {
+            FindShake = Hash != Spy.CalcHash(Block.data);
+        }
+
+        private void Block_AfterWrite(object sender, EventArgs e)
         {
             unchecked { Write++; }
             Hash = Spy.CalcHash(Block.data);

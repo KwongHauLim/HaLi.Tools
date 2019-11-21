@@ -17,8 +17,10 @@ namespace HaLi.Tools.SecretMemory
         private int prime = 1;
         private object locker = new object();
 
-        internal event EventHandler OnWrite;
-        internal event EventHandler OnRead;
+        internal event EventHandler BeforeWrite;
+        internal event EventHandler AfterWrite;
+        internal event EventHandler BeforeRead;
+        internal event EventHandler AfterRead;
 
         public Block() : this(1024) { }
         public Block(int size)
@@ -44,6 +46,7 @@ namespace HaLi.Tools.SecretMemory
                     while (used[next]) next = Move();
                     used[next] = true;
                     pos = next;
+                    Free--;
                     return true;
                 }
             }
@@ -58,19 +61,26 @@ namespace HaLi.Tools.SecretMemory
 
         internal void Write(int p, byte value)
         {
+            if (BeforeWrite != null)
+                BeforeWrite(this, EventArgs.Empty);
+
             data[p] = value;
 
-            if (OnWrite != null)
-                OnWrite(this, EventArgs.Empty);
-            
-            Free--;
+            if (AfterWrite != null)
+                AfterWrite(this, EventArgs.Empty);
         }
 
         internal byte Read(int p)
         {
-            if (OnRead != null)
-                OnRead(this, EventArgs.Empty);
-            return data[p];
+            if (BeforeRead != null)
+                BeforeRead(this, EventArgs.Empty);
+
+            byte d = data[p];
+
+            if (AfterRead != null)
+                AfterRead(this, EventArgs.Empty);
+
+            return d;
         }
 
         private int Move()
