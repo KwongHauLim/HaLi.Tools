@@ -2,12 +2,15 @@
 
 namespace HaLi.Tools.SecretMemory
 {
-    public abstract class VAR<T> 
+    /// <summary>
+    /// Basic class of secret data holder
+    /// </summary>
+    public abstract class VAR<T>
     {
         protected class Data
         {
-            public Block Block { get; set; }
-            public int Position { get; set; }
+            internal Block Block { get; set; }
+            internal int Position { get; set; }
 
             public void Set(byte v) => Block.Write(Position, v);
             public byte Get() => Block.Read(Position);
@@ -42,7 +45,7 @@ namespace HaLi.Tools.SecretMemory
             }
         }
 
-        public VAR(int size)
+        protected VAR(int size)
         {
             dats = new Data[size];
             for (int i = 0; i < size; i++)

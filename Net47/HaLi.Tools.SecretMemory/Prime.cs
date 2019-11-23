@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HaLi.Tools.Randomization;
+﻿using HaLi.Tools.Randomization;
 
 namespace HaLi.Tools.SecretMemory
 {
@@ -12,7 +7,7 @@ namespace HaLi.Tools.SecretMemory
         private static readonly int[] PRIME = new int[] { 3, 7, 11, 13, 17, 23, 31, 37, 41, 47 };
 
         public static int Get()
-            => PRIME[RNG.Next(0,PRIME.Length)];
+            => PRIME[RNG.Next(0, PRIME.Length)];
 
         public static int[] GetShuffle(int size)
         {

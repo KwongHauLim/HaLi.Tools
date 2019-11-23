@@ -3,6 +3,9 @@ using System.Text;
 
 namespace HaLi.Tools.SecretMemory
 {
+    /// <summary>
+    /// For hold data in secret place
+    /// </summary>
     public static class Secret
     {
         public class Int : VAR<int>

@@ -1,26 +1,47 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using HaLi.Tools.Randomization;
 
 namespace HaLi.Tools.SecretMemory
 {
-    public class Block
+    /// <summary>
+    /// Hold secret data, may be part, may be whole
+    /// </summary>
+    internal class Block
     {
-        public BitArray used;
-        public byte[] data;
+        private readonly object locker = new object();
 
-        public int Free { get; internal set; }
+        /// <summary>
+        /// Real data place
+        /// </summary>
+        internal byte[] data;
+        /// <summary>
+        /// Index for avail shot of data
+        /// </summary>
+        internal Queue<int> next;
 
-        private int next = 0;
-        private int prime = 1;
-        private object locker = new object();
+        /// <summary>
+        /// Byte Count of this block
+        /// </summary>
+        public int Size => data.Length;
+        /// <summary>
+        /// Number of empty shot in this block
+        /// </summary>
+        public int Free => next.Count;
 
-        internal event EventHandler BeforeWrite;
-        internal event EventHandler AfterWrite;
-        internal event EventHandler BeforeRead;
-        internal event EventHandler AfterRead;
+        /// <summary>
+        /// If found something, this block no more trustable
+        /// </summary>
+        internal bool Trust { get; set; }
+
+        internal class EventArgs
+        {
+            public int Position { get; set; }
+            public byte Value { get; set; }
+        }
+        internal event EventHandler<EventArgs> BeforeWrite;
+        internal event EventHandler<EventArgs> AfterWrite;
+        internal event EventHandler<EventArgs> BeforeRead;
+        internal event EventHandler<EventArgs> AfterRead;
 
         public Block() : this(1024) { }
         public Block(int size)
@@ -28,12 +49,10 @@ namespace HaLi.Tools.SecretMemory
             if (size <= 0)
                 size = 1024;
 
-            used = new BitArray(size, false);
             data = new byte[size];
-            Free = size;
+            next = new Queue<int>(Prime.GetShuffle(size));
 
-            prime = Prime.Get();
-            next = RNG.Next(0, size);
+            Trust = true;
         }
 
         internal bool Alloc(out int pos)
@@ -43,10 +62,7 @@ namespace HaLi.Tools.SecretMemory
             {
                 if (Free > 0)
                 {
-                    while (used[next]) next = Move();
-                    used[next] = true;
-                    pos = next;
-                    Free--;
+                    pos = next.Dequeue();
                     return true;
                 }
             }
@@ -55,47 +71,29 @@ namespace HaLi.Tools.SecretMemory
 
         internal void Release(int position)
         {
-            used[position] = false;
-            Free++;
+            next.Enqueue(position);
         }
 
         internal void Write(int p, byte value)
         {
-            if (BeforeWrite != null)
-                BeforeWrite(this, EventArgs.Empty);
-
+            var args = new EventArgs { Position = p, Value = data[p] };
+            BeforeWrite?.Invoke(this, args);
+            if (!Trust)
+                Spy.Protect.HealMe(this);
             data[p] = value;
-
-            if (AfterWrite != null)
-                AfterWrite(this, EventArgs.Empty);
+            args.Value = value;
+            AfterWrite?.Invoke(this, args);
         }
 
         internal byte Read(int p)
         {
-            if (BeforeRead != null)
-                BeforeRead(this, EventArgs.Empty);
-
+            var args = new EventArgs { Position = p, Value = data[p] };
+            BeforeRead?.Invoke(this, args);
+            if (!Trust)
+                Spy.Protect.HealMe(this);
             byte d = data[p];
-
-            if (AfterRead != null)
-                AfterRead(this, EventArgs.Empty);
-
+            AfterRead?.Invoke(this, args);
             return d;
-        }
-
-        private int Move()
-        {
-            next += prime;
-            next = Adjust(next);
-            return next;
-        }
-
-        private int Adjust(int idx)
-        {
-            int size = data.Length;
-            while (idx < 0) return idx + size;
-            while (idx >= size) return idx - size;
-            return idx;
         }
     }
 }
