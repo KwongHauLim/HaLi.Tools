@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HaLi.Tools.Randomization.Algorithms
 {
@@ -79,5 +77,5 @@ namespace HaLi.Tools.Randomization.Algorithms
         public long Int64 => (long)(UInt32 << 32 | UInt32);
         public ulong UInt64 => (ulong)(UInt32 << 32 | UInt32);
     }
-            
+
 }

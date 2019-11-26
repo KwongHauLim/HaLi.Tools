@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HaLi.Tools.Extends
 {
@@ -19,7 +16,7 @@ namespace HaLi.Tools.Extends
 
             for (int i = 0; i < start && full; i++)
             {
-                yield return  i;
+                yield return i;
             }
         }
 
@@ -62,12 +59,12 @@ namespace HaLi.Tools.Extends
 
             return lo;
         }
-        
+
         public static T Random<T>(this List<T> list)
         {
             if (list.Count > 0)
             {
-            Random rand = new Random();
+                Random rand = new Random();
                 int index = rand.Next(list.Count);
                 return list[index];
             }
@@ -88,7 +85,7 @@ namespace HaLi.Tools.Extends
             }
         }
 
-        public static IEnumerable<U> Cast<T,U>(this List<T> list, Func<T,U> cast)
+        public static IEnumerable<U> Cast<T, U>(this List<T> list, Func<T, U> cast)
         {
             foreach (var item in list)
             {

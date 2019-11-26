@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HaLi.Tools.Randomization
+﻿namespace HaLi.Tools.Randomization
 {
     /// <summary>
     /// (RNG)Random Number Generator

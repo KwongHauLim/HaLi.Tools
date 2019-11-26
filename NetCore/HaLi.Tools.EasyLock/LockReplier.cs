@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using HaLi.Tools.Extends;
 
 namespace HaLi.Tools.EasyLock
 {
@@ -25,7 +23,7 @@ namespace HaLi.Tools.EasyLock
         {
             lock (locker)
             {
-                var who =new Replier
+                var who = new Replier
                 {
                     index = list.Count,
                     Item = item,

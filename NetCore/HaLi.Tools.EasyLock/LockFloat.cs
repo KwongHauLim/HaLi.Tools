@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HaLi.Tools.EasyLock
+﻿namespace HaLi.Tools.EasyLock
 {
     public class LockFloat : LockVar<float>
     {
@@ -18,7 +12,7 @@ namespace HaLi.Tools.EasyLock
         public override int GetHashCode() => base.GetHashCode();
 
         public static implicit operator LockFloat(float x) => new LockFloat(x);
-        public static implicit operator float (LockFloat x) => x.Value;
+        public static implicit operator float(LockFloat x) => x.Value;
         public static float operator +(LockFloat x, float y) => x.Value + y;
         public static float operator -(LockFloat x, float y) => x.Value - y;
         public static float operator *(LockFloat x, float y) => x.Value * y;

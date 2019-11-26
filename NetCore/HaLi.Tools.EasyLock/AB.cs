@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HaLi.Tools.EasyLock
 {
     public class AB<T>
-        where T: class, new()
+        where T : class, new()
     {
         public class Locker
         {

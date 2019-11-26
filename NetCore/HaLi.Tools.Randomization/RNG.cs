@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using HaLi.Tools.EasyLock;
 using HaLi.Tools.Randomization.Algorithms;
-using System.Linq;
 
 namespace HaLi.Tools.Randomization
 {
@@ -89,6 +86,8 @@ namespace HaLi.Tools.Randomization
                         for (int i = 0; i < array.Length; i++) { array[i] = (T)(object)rng.Float; }
                     else if (code == TypeCode.Double)
                         for (int i = 0; i < array.Length; i++) { array[i] = (T)(object)rng.Double; }
+                    else if (code == TypeCode.Byte)
+                        for (int i = 0; i < array.Length; i++) { array[i] = (T)(object)(byte)(rng.Int32 & 0xFF); }
                 }).Wait();
             }
         }

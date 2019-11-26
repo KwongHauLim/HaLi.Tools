@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HaLi.Tools.EasyLock
+﻿namespace HaLi.Tools.EasyLock
 {
     public class LockString : LockVar<string>
     {
@@ -19,6 +13,6 @@ namespace HaLi.Tools.EasyLock
         public override int GetHashCode() => base.GetHashCode();
 
         public static implicit operator LockString(string x) => new LockString(x);
-        public static implicit operator string (LockString x) => x.Value;
+        public static implicit operator string(LockString x) => x.Value;
     }
 }
