@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HaLi.Tools.EasyLock
+namespace HaLi.Tools.EasyPool
 {
     public class AB<T>
         where T : class, new()

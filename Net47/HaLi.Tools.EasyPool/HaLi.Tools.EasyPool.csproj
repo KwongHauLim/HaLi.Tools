@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{120028AE-9B10-464D-8278-5F48BE8F7BBC}</ProjectGuid>
+    <ProjectGuid>{1EBEB87C-2361-49E1-A57B-AAA07DEBEBCB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HaLi.Tools.EasyLock</RootNamespace>
-    <AssemblyName>HaLi.Tools.EasyLock</AssemblyName>
+    <RootNamespace>HaLi.Tools.EasyPool</RootNamespace>
+    <AssemblyName>HaLi.Tools.EasyPool</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -23,7 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -41,30 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockFloat.cs">
-      <Link>LockFloat.cs</Link>
+    <Compile Include="..\..\NetCore\HaLi.Tools.EasyPool\AB.cs">
+      <Link>AB.cs</Link>
     </Compile>
-    <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockINT.cs">
-      <Link>LockINT.cs</Link>
-    </Compile>
-    <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockReplier.cs">
-      <Link>LockReplier.cs</Link>
-    </Compile>
-    <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockStack.cs">
-      <Link>LockStack.cs</Link>
-    </Compile>
-    <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockString.cs">
-      <Link>LockString.cs</Link>
-    </Compile>
-    <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockVar.cs">
-      <Link>LockVar.cs</Link>
+    <Compile Include="..\..\NetCore\HaLi.Tools.EasyPool\Pool.cs">
+      <Link>Pool.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HaLi.Tools.Extends\HaLi.Tools.Extends.csproj">
-      <Project>{85101852-11ee-4119-bfca-906be23ecbc3}</Project>
-      <Name>HaLi.Tools.Extends</Name>
+    <ProjectReference Include="..\HaLi.Tools.EasyLock\HaLi.Tools.EasyLock.csproj">
+      <Project>{120028ae-9b10-464d-8278-5f48be8f7bbc}</Project>
+      <Name>HaLi.Tools.EasyLock</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

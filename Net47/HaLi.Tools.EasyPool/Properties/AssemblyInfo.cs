@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HaLi.Tools.EasyLock")]
-[assembly: AssemblyDescription("Provide thread lock behind variable access")]
+[assembly: AssemblyTitle("HaLi.Tools.EasyPool")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Kwong Hau Lim")]
-[assembly: AssemblyProduct("HaLi.Tools.EasyLock")]
-[assembly: AssemblyCopyright("Copyright © Kwong Hau Lim 2019")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("HaLi.Tools.EasyPool")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("120028ae-9b10-464d-8278-5f48be8f7bbc")]
+[assembly: Guid("1ebeb87c-2361-49e1-a57b-aaa07debebcb")]
 
 // Version information for an assembly consists of the following four values:
 //
