@@ -21,7 +21,7 @@ namespace HaLi.Tools.Randomization
                 int idx;
                 for (int i = cnt - 1; i > 0; i--)
                 {
-                    idx = rand.Int32 % cnt;
+                    idx = Math.Abs(rand.Int32) % cnt;
                     if (idx != i)
                     {
                         tmp = list[idx];
