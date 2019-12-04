@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EasyPool;
 
 namespace HaLi.Tools.SecretMemory
 {
@@ -43,6 +44,8 @@ namespace HaLi.Tools.SecretMemory
         internal event EventHandler<EventArgs> BeforeRead;
         internal event EventHandler<EventArgs> AfterRead;
 
+        private Pool<EventArgs> pool;
+
         public Block() : this(1024) { }
         public Block(int size)
         {
@@ -51,6 +54,8 @@ namespace HaLi.Tools.SecretMemory
 
             data = new byte[size];
             next = new Queue<int>(Prime.GetShuffle(size));
+
+            pool = new Pool<EventArgs>();
 
             Trust = true;
         }
@@ -76,23 +81,34 @@ namespace HaLi.Tools.SecretMemory
 
         internal void Write(int p, byte value)
         {
-            var args = new EventArgs { Position = p, Value = data[p] };
+            var args = pool.Pop();
+            args.Position = p;
+            args.Value = data[p];
+
             BeforeWrite?.Invoke(this, args);
             if (!Trust)
                 Spy.Protect.HealMe(this);
             data[p] = value;
             args.Value = value;
             AfterWrite?.Invoke(this, args);
+
+            pool.Push(args);
         }
 
         internal byte Read(int p)
         {
-            var args = new EventArgs { Position = p, Value = data[p] };
+            var args = pool.Pop();
+            args.Position = p;
+            args.Value = data[p];
+
             BeforeRead?.Invoke(this, args);
             if (!Trust)
                 Spy.Protect.HealMe(this);
             byte d = data[p];
             AfterRead?.Invoke(this, args);
+
+            pool.Push(args);
+
             return d;
         }
     }
