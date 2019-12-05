@@ -67,6 +67,16 @@ namespace HaLi.Tools.Randomization
             return r;
         }
 
+        public static double Next(double min = double.MinValue, double max = double.MaxValue)
+        {
+            double r = 0.0;
+            Share.Pool.DoAsync((rand) =>
+            {
+                r = (double)UInt32 / (double)uint.MaxValue * (max - min) + min;
+            }).Wait();
+            return r;
+        }
+
         public static void Fill<T>(T[] array)
         {
             if (typeof(T).IsValueType)
