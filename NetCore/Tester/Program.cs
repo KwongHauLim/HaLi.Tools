@@ -1,46 +1,19 @@
 ﻿using System;
-using HaLi.Tools.SecretMemory;
+using HaLi.Tools.Roulette;
 
 namespace Tester
 {
-    class Example
-    {
-        public Example()
-        {
-            Console.WriteLine("Constructor");
-        }
-
-        ~Example()
-        {
-            Console.WriteLine("Destructor");
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            SecretInt b = new SecretInt();
-            b.Value = 12;
-            GC.SuppressFinalize(b);
-            b = null;
-            GC.Collect();
-            GC.Collect();
-            //SecretInt[] secret = new SecretInt[10];
-            //for (int i = 0; i < secret.Length; i++)
-            //{
-            //    secret[i] = new SecretInt();
-            //    secret[i].Value = i;
-            //}
+            var roulette = new Roller();
+            roulette.Table = new Table();
+            roulette.Table.SetPrize("a", 20.0);
+            roulette.Table.SetPrize("b", 20.0);
 
-            //for (int i = 0; i < secret.Length; i++)
-            //{
-            //    Console.WriteLine(secret[i].Value);
-            //}
-            for (int i = 0; i < 10; i++)
-            {
-                new SecretInt().Value = i;
-            }
+            var ret = roulette.Next();
+
             Console.ReadKey();
         }
     }

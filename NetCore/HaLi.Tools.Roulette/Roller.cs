@@ -11,9 +11,11 @@ namespace HaLi.Tools.Roulette
 
         public object Next()
         {
-            double r = RNG.Next(0.0,Table.sum);
-            return null;
-            //int i = Table.Chance().IndexOf(v => v.CompareTo(r) <= 0);
+            var w = Table.GetWeights();
+            double r = RNG.Next(0.0, Table.sum);
+            int i = 0;
+            while (i < w.Count && w[i].CompareTo(r) < 0) i++;
+            return Table[i];
         }
     }
 
@@ -22,16 +24,36 @@ namespace HaLi.Tools.Roulette
         public Dictionary<object, double> Pocket { get; set; } = new Dictionary<object, double>();
 
         internal protected bool isChanged = false;
-        private List<object> prizes = new List<object>();
+        internal List<object> prizes = new List<object>();
         private List<double> weights = new List<double>();
         internal double sum = 0.0;
+
+        public object this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < prizes.Count)
+                    return prizes[index];
+                else
+                    return null;
+            }
+        }
 
         public Table()
         {
             isChanged = true;
         }
 
-        public List<double> Chance()
+        public void SetPrize(object prize, double chance)
+        {
+            if (chance.CompareTo(0) <= 0)
+                Pocket.Remove(prize);
+            else
+                Pocket[prize] = chance;
+            isChanged = true;
+        }
+
+        public List<double> GetWeights()
         {
             if (isChanged)
             {

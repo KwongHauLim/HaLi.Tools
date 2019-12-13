@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HaLi.Tools.Roulette\HaLi.Tools.Roulette.csproj" />
+  </ItemGroup>
+
 </Project>

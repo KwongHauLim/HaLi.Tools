@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HaLi.Tools.Randomization\HaLi.Tools.Randomization.csproj">
+      <Project>{C5DB1261-90E8-49A8-8A9E-709D63B88DC9}</Project>
+      <Name>HaLi.Tools.Randomization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HaLi.Tools.SecretMemory\HaLi.Tools.SecretMemory.csproj">
       <Project>{d47078dc-7a8a-4811-962e-a4fc6974271e}</Project>
       <Name>HaLi.Tools.SecretMemory</Name>
