@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace HaLi.Tools.Extends
 {
+    [DebuggerStepThrough]
     public static class ExtendDouble
     {
         public static double Round(this double f, int decimals)

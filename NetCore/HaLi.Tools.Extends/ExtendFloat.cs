@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace HaLi.Tools.Extends
 {
+    [DebuggerStepThrough]
     public static class ExtendFloat
     {
         public static float Round(this float f, int decimals)
