@@ -1,11 +1,22 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace HaLi.Tools.Hashcode
 {
     public sealed class Cipher : IHashCalc
     {
-        public string Secret { get; set; } = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        public string Secret { get; set; } 
         public bool UpperCase { get; set; } = true;
+
+        public Cipher() : this("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        {
+
+        }
+
+        public Cipher(string code)
+        {
+            Secret = code;
+        }
 
         public string GetHash(int code)
         {
@@ -24,6 +35,11 @@ namespace HaLi.Tools.Hashcode
         public string GetHash(string str)
         {
             return GetHash(str.GetHashCode());
+        }
+
+        public string GetHash(byte[] binary)
+        {
+            return GetHash(Convert.ToBase64String(binary));
         }
     }
 }

@@ -3,6 +3,7 @@
     public interface IHashCalc
     {
         string GetHash(string str);
+        string GetHash(byte[] binary);
     }
 
     public class Hash
@@ -19,5 +20,8 @@
 
         public static string GetHash(string str)
             => Share.Algorithm.GetHash(str);
+
+        public static string GetHash(byte[] binary)
+            => Share.Algorithm.GetHash(binary);
     }
 }
