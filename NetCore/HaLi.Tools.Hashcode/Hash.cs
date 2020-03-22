@@ -26,5 +26,8 @@ namespace HaLi.Tools.Hashcode
 
         public static string GetHash(byte[] binary)
             => Share.Algorithm.GetHash(binary);
+
+        public static string GetHash(Stream stream)
+            => Share.Algorithm.GetHash(stream);
     }
 }
