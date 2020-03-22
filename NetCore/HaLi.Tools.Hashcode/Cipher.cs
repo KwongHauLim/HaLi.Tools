@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 
 namespace HaLi.Tools.Hashcode
@@ -40,6 +41,13 @@ namespace HaLi.Tools.Hashcode
         public string GetHash(byte[] binary)
         {
             return GetHash(Convert.ToBase64String(binary));
+        }
+
+        public string GetHash(Stream stream)
+        {
+            using var ms = new MemoryStream();
+            stream.CopyTo(ms);
+            return GetHash(ms.ToArray());
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace HaLi.Tools.Hashcode
@@ -7,20 +8,25 @@ namespace HaLi.Tools.Hashcode
     {
         public Encoding Encoding { get; set; } = Encoding.UTF8;
         public bool UpperCase { get; set; } = true;
+        private string Format => UpperCase ? "X2" : "x2";
 
         public string GetHash(byte[] binary)
         {
-            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
-            {
-                byte[] hash = md5.ComputeHash(binary);
-                string format = UpperCase ? "X2" : "x2";
-                return string.Concat(hash.Select(b => b.ToString(format)));
-            }
+            using var md5 = System.Security.Cryptography.MD5.Create();
+            byte[] hash = md5.ComputeHash(binary);
+            return string.Concat(hash.Select(b => b.ToString(Format)));
         }
 
         public string GetHash(string str)
         {
             return GetHash(Encoding.GetBytes(str));
+        }
+
+        public string GetHash(Stream stream)
+        {
+            using var md5 = System.Security.Cryptography.MD5.Create();
+            byte[] hash = md5.ComputeHash(stream);
+            return string.Concat(hash.Select(b => b.ToString(Format)));
         }
     }
 }

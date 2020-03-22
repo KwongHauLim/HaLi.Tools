@@ -1,9 +1,12 @@
-﻿namespace HaLi.Tools.Hashcode
+﻿using System.IO;
+
+namespace HaLi.Tools.Hashcode
 {
     public interface IHashCalc
     {
         string GetHash(string str);
         string GetHash(byte[] binary);
+        string GetHash(Stream stream);
     }
 
     public class Hash
