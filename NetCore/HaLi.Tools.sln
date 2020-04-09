@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tester", "Tester\Tester.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.EasyPool", "HaLi.Tools.EasyPool\HaLi.Tools.EasyPool.csproj", "{E29848BE-536F-4A92-AB60-402BDB18199C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.Roulette", "HaLi.Tools.Roulette\HaLi.Tools.Roulette.csproj", "{9A559D2C-F217-4B62-B05B-888D1BC4EFA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaLi.Tools.Roulette", "HaLi.Tools.Roulette\HaLi.Tools.Roulette.csproj", "{9A559D2C-F217-4B62-B05B-888D1BC4EFA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaLi.Tools.Binary", "HaLi.Tools.Binary\HaLi.Tools.Binary.csproj", "{161786FE-6632-4B32-B10A-D1AD60D5782F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{9A559D2C-F217-4B62-B05B-888D1BC4EFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A559D2C-F217-4B62-B05B-888D1BC4EFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A559D2C-F217-4B62-B05B-888D1BC4EFA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161786FE-6632-4B32-B10A-D1AD60D5782F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161786FE-6632-4B32-B10A-D1AD60D5782F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161786FE-6632-4B32-B10A-D1AD60D5782F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161786FE-6632-4B32-B10A-D1AD60D5782F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
