@@ -8,6 +8,7 @@
     <Authors>Kwong Hau Lim</Authors>
     <Description>Simple way to Calc hash</Description>
     <Version>1.0.1</Version>
+    <PackageProjectUrl>https://github.com/KwongHauLim/HaLi.Tools</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

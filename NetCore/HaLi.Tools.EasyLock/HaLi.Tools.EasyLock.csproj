@@ -7,6 +7,7 @@
     <FileVersion>1.0.0.2</FileVersion>
     <Description>Library of Varible, provide Thread lock behind varible access</Description>
     <Copyright>Copyright © Kwong Hau Lim 2019</Copyright>
+    <PackageProjectUrl>https://github.com/KwongHauLim/HaLi.Tools</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

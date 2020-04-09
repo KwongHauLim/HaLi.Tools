@@ -7,6 +7,7 @@
     <Copyright>Copyright © Kwong Hau Lim 2019</Copyright>
     <Authors>Kwong Hau Lim</Authors>
     <Description>Library of Encryption, provide simple way to encrypt or decrypt</Description>
+    <PackageProjectUrl>https://github.com/KwongHauLim/HaLi.Tools</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

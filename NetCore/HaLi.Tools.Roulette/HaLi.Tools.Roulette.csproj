@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/KwongHauLim/HaLi.Tools</PackageProjectUrl>
+    <Copyright>Copyright © Kwong Hau Lim 2019</Copyright>
+    <Description>One of random method</Description>
   </PropertyGroup>
 
   <ItemGroup>

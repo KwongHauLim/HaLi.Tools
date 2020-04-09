@@ -7,6 +7,7 @@
     <Authors>Kwong Hau Lim</Authors>
     <Copyright>Copyright © Kwong Hau Lim 2019</Copyright>
     <Description>Library of extension, provide extra methods to usual class</Description>
+    <PackageProjectUrl>https://github.com/KwongHauLim/HaLi.Tools</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

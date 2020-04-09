@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/KwongHauLim/HaLi.Tools</PackageProjectUrl>
+    <Copyright>Copyright © Kwong Hau Lim 2019</Copyright>
+    <Authors>HaLi</Authors>
+    <Description>Pooling of something reuseable class</Description>
   </PropertyGroup>
 
   <ItemGroup>
