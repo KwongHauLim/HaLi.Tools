@@ -239,5 +239,12 @@ namespace HaLi.Tools.Extends
 
         public static bool SurroundWith(this string s, string start, string end)
             => s.StartsWith(start) && s.EndsWith(end);
+
+        public static string Slim(this string s)
+        {
+            s = s.Trim();
+            s = s.Replace(Environment.NewLine, string.Empty);
+            return s;
+        }
     }
 }

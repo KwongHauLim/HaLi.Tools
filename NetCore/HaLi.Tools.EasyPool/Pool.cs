@@ -26,13 +26,19 @@ namespace EasyPool
             lock (locker)
             {
                 if (stack.Count > 0)
-                    return stack.Pop(); 
+                    return stack.Pop();
             }
 
+            return PopEmpty();
+        }
+
+        protected virtual T PopEmpty()
+        {
             if (NewIfEmpty)
                 return new T();
             else
                 return default(T);
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HaLi.Tools.EasyLock
 {
@@ -55,7 +56,12 @@ namespace HaLi.Tools.EasyLock
 
         public override T Pop()
         {
-            return base.Pop() ?? New();
+            return base.Pop() ?? PopEmpty();
+        }
+
+        protected virtual T PopEmpty()
+        {
+            return New();
         }
     }
 }
