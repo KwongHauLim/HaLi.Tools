@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace HaLi.Tools.Hashcode
 {
     public sealed class Cipher : IHashCalc
     {
-        public string Secret { get; set; } 
+        public string Secret { get; set; }
         public bool UpperCase { get; set; } = true;
 
         public Cipher() : this("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -35,7 +36,10 @@ namespace HaLi.Tools.Hashcode
 
         public string GetHash(string str)
         {
-            return GetHash(str.GetHashCode());
+            using var sha1 = new SHA1Managed();
+            var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(str));
+            var code = BitConverter.ToInt32(hash, 0);
+            return GetHash(code);
         }
 
         public string GetHash(byte[] binary)
