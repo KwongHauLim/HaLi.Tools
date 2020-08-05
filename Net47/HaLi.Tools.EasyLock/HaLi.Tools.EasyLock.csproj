@@ -41,11 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockDict.cs">
+      <Link>LockDict.cs</Link>
+    </Compile>
     <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockFloat.cs">
       <Link>LockFloat.cs</Link>
     </Compile>
     <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockINT.cs">
       <Link>LockINT.cs</Link>
+    </Compile>
+    <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockList.cs">
+      <Link>LockList.cs</Link>
     </Compile>
     <Compile Include="..\..\NetCore\HaLi.Tools.EasyLock\LockReplier.cs">
       <Link>LockReplier.cs</Link>
