@@ -1,0 +1,1 @@
+===== HaLi.Tools.Hashcode ====
