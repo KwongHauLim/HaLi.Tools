@@ -38,8 +38,12 @@ namespace HaLi.Tools.Hashcode
         {
             using var sha1 = new SHA1Managed();
             var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(str));
-            var code = BitConverter.ToInt32(hash, 0);
-            return GetHash(code);
+            var code = new StringBuilder();
+            for (int i = 0; i < hash.Length; i += 4)
+            {
+                code.Append(GetHash(BitConverter.ToInt32(hash, i)));
+            }
+            return code.ToString();
         }
 
         public string GetHash(byte[] binary)
