@@ -12,18 +12,18 @@ namespace HaLi.Tools.Hashcode
         public bool UpperCase { get; set; } = true;
         private string Format => UpperCase ? "X2" : "x2";
 
+        public string GetHash(string str)
+            => GetHash(Encoding.GetBytes(str));
+
+        public string GetHash(int num)
+            => GetHash(BitConverter.GetBytes(num));
+
         public string GetHash(byte[] binary)
         {
             using var sha1 = new SHA1Managed();
             var hash = sha1.ComputeHash(binary);
             return string.Concat(hash.Select(b => b.ToString(Format)));
         }
-
-        public string GetHash(string str)
-            => GetHash(Encoding.GetBytes(str));
-
-        public string GetHash(int num)
-            => GetHash(BitConverter.GetBytes(num));
 
         public string GetHash(Stream stream)
         {

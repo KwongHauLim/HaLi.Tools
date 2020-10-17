@@ -33,19 +33,24 @@ namespace HaLi.Tools.Hashcode
         {
             using var sha1 = new SHA1Managed();
             var hash = sha1.ComputeHash(binary);
+            return HashToString(hash);
+        }
+
+        public string GetHash(Stream stream)
+        {
+            using var sha1 = new SHA1Managed();
+            var hash = sha1.ComputeHash(stream);
+            return HashToString(hash);
+        }
+
+        private string HashToString(byte[] hash)
+        {
             var code = new StringBuilder();
             for (int i = 0; i < hash.Length; i += 4)
             {
                 code.Append(ToBase64(BitConverter.ToInt32(hash, i)));
             }
             return code.ToString();
-        }
-
-        public string GetHash(Stream stream)
-        {
-            using var ms = new MemoryStream();
-            stream.CopyTo(ms);
-            return GetHash(ms.ToArray());
         }
 
         public bool Validate(string hash)
@@ -75,17 +80,6 @@ namespace HaLi.Tools.Hashcode
                 last = curr >> 4 & 0x0F;
             }
             return (f & 0x0F) == last;
-            //int first = Secret.IndexOf(hash[0]);
-            //int last = first >> 4 & 1;
-            //int curr = 0;
-            //for (int i = 1; i < hash.Length; i++)
-            //{
-            //    curr = Secret.IndexOf(hash[i]);
-            //    if ((curr & 1) != last)
-            //        return false;
-            //    last = curr >> 4 & 1;
-            //}
-            //return (first & 1) == last;
         }
     }
 }
