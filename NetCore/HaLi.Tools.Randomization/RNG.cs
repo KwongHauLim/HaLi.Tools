@@ -4,17 +4,17 @@ using HaLi.Tools.Randomization.Algorithms;
 
 namespace HaLi.Tools.Randomization
 {
-    public class RNG
+    public sealed class RNG
     {
         private static RNG _ptr = null;
         public static RNG Share => _ptr = _ptr ?? new RNG();
 
-        internal protected LockReplier<IRng> Pool { get; set; } = new LockReplier<IRng>();
-        internal protected uint Seed { get; set; } = 0;
+        internal LockReplier<IRng> Pool { get; set; } = new LockReplier<IRng>();
+        internal uint Seed { get; set; } = 0;
 
-        public RNG() : this((uint)Environment.TickCount) { }
+        private RNG() : this((uint)Environment.TickCount) { }
 
-        public RNG(uint seed)
+        private RNG(uint seed)
         {
             Seed = seed;
             var first = new XorWow(seed);
@@ -26,7 +26,12 @@ namespace HaLi.Tools.Randomization
             }
         }
 
-        public void Push<T>(T item)
+        public void Clear()
+        {
+            Pool.Clear();
+        }
+
+        public void Add<T>(T item)
             where T : IRng
         {
             if (item == null)

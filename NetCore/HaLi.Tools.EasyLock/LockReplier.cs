@@ -19,6 +19,15 @@ namespace HaLi.Tools.EasyLock
 
         public int Avail => avails.Count;
 
+        public void Clear()
+        {
+            lock (locker)
+            {
+                list.Clear();
+                avails.Clear();
+            }
+        }
+
         public virtual void Add(T item)
         {
             lock (locker)
