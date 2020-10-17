@@ -8,6 +8,9 @@
     <Copyright>Copyright © Kwong Hau Lim 2019</Copyright>
     <Description>Library of Randomization</Description>
     <PackageProjectUrl>https://github.com/KwongHauLim/HaLi.Tools</PackageProjectUrl>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
