@@ -1,10 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace HaLi.Tools.Hashcode
 {
     public interface IHashCalc
     {
         string GetHash(string str);
+        string GetHash(int num);
         string GetHash(byte[] binary);
         string GetHash(Stream stream);
     }
@@ -23,6 +25,9 @@ namespace HaLi.Tools.Hashcode
 
         public static string GetHash(string str)
             => Share.Algorithm.GetHash(str);
+
+        public static string GetHash(int num)
+            => Share.Algorithm.GetHash(num);
 
         public static string GetHash(byte[] binary)
             => Share.Algorithm.GetHash(binary);

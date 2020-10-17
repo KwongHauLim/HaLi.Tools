@@ -7,18 +7,18 @@ namespace HaLi.Tools.Hashcode
 {
     public sealed class Base64 : IHashCalc
     {
-        public string GetHash(int code)
+        public string GetHash(int num)
         {
             byte[] base64 = new byte[8]
             {
-                (byte)(code &0xFF),
-                (byte)(code >> 4 & 0xFF),
-                (byte)(code >> 8 & 0xFF),
-                (byte)(code >> 12 & 0xFF),
-                (byte)(code >> 16 & 0xFF),
-                (byte)(code >> 20 & 0xFF),
-                (byte)(code >> 24 & 0xFF),
-                (byte)((code >> 28 & 0x0F) | ((code & 0x0F) << 4))
+                (byte)(num &0xFF),
+                (byte)(num >> 4 & 0xFF),
+                (byte)(num >> 8 & 0xFF),
+                (byte)(num >> 12 & 0xFF),
+                (byte)(num >> 16 & 0xFF),
+                (byte)(num >> 20 & 0xFF),
+                (byte)(num >> 24 & 0xFF),
+                (byte)((num >> 28 & 0x0F) | ((num & 0x0F) << 4))
             };
             return Convert.ToBase64String(base64);
         }

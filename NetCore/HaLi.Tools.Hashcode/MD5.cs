@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -18,9 +19,10 @@ namespace HaLi.Tools.Hashcode
         }
 
         public string GetHash(string str)
-        {
-            return GetHash(Encoding.GetBytes(str));
-        }
+            => GetHash(Encoding.GetBytes(str));
+
+        public string GetHash(int num)
+            => GetHash(BitConverter.GetBytes(num));
 
         public string GetHash(Stream stream)
         {
