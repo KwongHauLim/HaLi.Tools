@@ -28,7 +28,20 @@ Random functions in easy access
     RNG.Fill(r13);
     RNG.Fill(r14);
     
-#### What is inside
+#### What is inside?
 It is use [XorShift](http://en.wikipedia.org/wiki/Xorshift) method to generate random number</br>
+For detail, please read wiki of [XorShift](http://en.wikipedia.org/wiki/Xorshift).
 
 
+### Extra
+Shuffle method
+
+    int[] r1 = Enumerable.Range(0, 100).ToArray();
+    List<int> r2 = Enumerable.Range(0, 100).ToList();
+    
+    r1.Shuffle(); // Shuffle the array
+    r2.Shuffle(); // Shuffle the list
+    
+    // Extra of extra, maybe meaningless
+    string s = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    s.Shuffle(); // Shuffle the string, i use in generate seed or generate key
