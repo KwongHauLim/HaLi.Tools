@@ -7,7 +7,7 @@ namespace HaLi.Tools.Hashcode
 {
     public sealed class Base64 : IHashCalc
     {
-        public string GetHash(int num)
+        public string ToBase64(int num)
         {
             byte[] base64 = new byte[8]
             {
@@ -24,20 +24,21 @@ namespace HaLi.Tools.Hashcode
         }
 
         public string GetHash(string str)
-        {
-            using var sha1 = new SHA1Managed();
-            var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(str));
-            var code = new StringBuilder();
-            for (int i = 0; i < hash.Length; i += 4)
-            {
-                code.Append(GetHash(BitConverter.ToInt32(hash, i)));
-            }
-            return code.ToString();
-        }
+            => GetHash(Encoding.UTF8.GetBytes(str));
+
+        public string GetHash(int num)
+            => GetHash(BitConverter.GetBytes(num));
 
         public string GetHash(byte[] binary)
         {
-            return GetHash(Convert.ToBase64String(binary));
+            using var sha1 = new SHA1Managed();
+            var hash = sha1.ComputeHash(binary);
+            var code = new StringBuilder();
+            for (int i = 0; i < hash.Length; i += 4)
+            {
+                code.Append(ToBase64(BitConverter.ToInt32(hash, i)));
+            }
+            return code.ToString();
         }
 
         public string GetHash(Stream stream)

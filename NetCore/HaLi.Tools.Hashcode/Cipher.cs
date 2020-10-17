@@ -20,7 +20,7 @@ namespace HaLi.Tools.Hashcode
             Secret = code;
         }
 
-        public string GetHash(int num)
+        public string ToCipher(int num)
         {
             var sb = new StringBuilder();
             sb.Append(Secret[num & 0x1F]);
@@ -35,20 +35,21 @@ namespace HaLi.Tools.Hashcode
         }
 
         public string GetHash(string str)
-        {
-            using var sha1 = new SHA1Managed();
-            var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(str));
-            var code = new StringBuilder();
-            for (int i = 0; i < hash.Length; i += 4)
-            {
-                code.Append(GetHash(BitConverter.ToInt32(hash, i)));
-            }
-            return code.ToString();
-        }
+            => GetHash(Encoding.UTF8.GetBytes(str));
+
+        public string GetHash(int num)
+            => GetHash(BitConverter.GetBytes(num));
 
         public string GetHash(byte[] binary)
         {
-            return GetHash(Convert.ToBase64String(binary));
+            using var sha1 = new SHA1Managed();
+            var hash = sha1.ComputeHash(binary);
+            var code = new StringBuilder();
+            for (int i = 0; i < hash.Length; i += 4)
+            {
+                code.Append(ToCipher(BitConverter.ToInt32(hash, i)));
+            }
+            return code.ToString();
         }
 
         public string GetHash(Stream stream)
