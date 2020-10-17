@@ -21,4 +21,8 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HaLi.Tools.Randomization\HaLi.Tools.Randomization.csproj" />
+  </ItemGroup>
+
 </Project>
