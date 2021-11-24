@@ -51,7 +51,7 @@ namespace HaLi.Tools.Randomization
                 int idx;
                 for (int i = count - 1; i > 0; i--)
                 {
-                    idx = Math.Abs(rand.Int32) % count;
+                    idx = Math.Abs(rand.Int32) % i;
                     if (idx != i)
                     {
                         indicate(idx, i);
