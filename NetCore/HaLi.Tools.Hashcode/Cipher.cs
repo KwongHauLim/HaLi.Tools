@@ -56,12 +56,13 @@ namespace HaLi.Tools.Hashcode
 
         private string HashToString(byte[] hash)
         {
+            int num = 0;
             var code = new StringBuilder();
             for (int i = 0; i < hash.Length; i += 4)
             {
-                code.Append(ToCipher(BitConverter.ToInt32(hash, i)));
+                num ^= BitConverter.ToInt32(hash, i);
             }
-            return code.ToString();
+            return ToCipher(num);
         }
     }
 }
