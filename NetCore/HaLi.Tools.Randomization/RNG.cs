@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using HaLi.Tools.EasyLock;
 using HaLi.Tools.Randomization.Algorithms;
 
@@ -84,6 +85,7 @@ namespace HaLi.Tools.Randomization
 
         public static void Fill<T>(T[] array)
         {
+            if (array == null) throw new ArgumentNullException();
             if (typeof(T).IsValueType)
             {
                 var code = Type.GetTypeCode(typeof(T));
@@ -105,6 +107,20 @@ namespace HaLi.Tools.Randomization
                         for (int i = 0; i < array.Length; i++) { array[i] = (T)(object)(byte)(rng.Int32 & 0xFF); }
                 }).Wait();
             }
+        }
+
+        public static T Random<T>(T[] array)
+        {
+            if (array == null) throw new ArgumentNullException();
+            if (array.Length == 1) return array[0];
+            return array[UInt32 % array.Length];
+        }
+
+        public static T Random<T>(List<T> list)
+        {
+            if (list == null) throw new ArgumentNullException();
+            if (list.Count == 1) return list[0];
+            return list[Math.Abs(Int32) % list.Count];
         }
     }
 
