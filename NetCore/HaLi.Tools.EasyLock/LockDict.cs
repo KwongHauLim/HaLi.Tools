@@ -88,7 +88,7 @@ namespace HaLi.Tools.EasyLock
             return true;
         }
 
-        public bool TryGetValue(T1 key, [MaybeNullWhen(false)] out T2 value)
+        public bool TryGetValue(T1 key, out T2 value)
         {
             lock (Locker) { return Origin.TryGetValue(key, out value); }
         }
