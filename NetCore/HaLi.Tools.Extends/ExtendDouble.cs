@@ -41,5 +41,29 @@ namespace HaLi.Tools.Extends
         {
             return Convert.ToBase64String(BitConverter.GetBytes(f));
         }
+
+        public static bool InRange(this double f, double min, double max)
+            => f.CompareTo(min) >= 0 && f.CompareTo(max) <= 0;
+
+        public static bool InRange01(this double f)
+            => f.CompareTo(0f) >= 0 && f.CompareTo(1f) <= 0;
+
+        public static double Clamp(this double f, double min, double max)
+        {
+            if (f.CompareTo(min) < 0)
+                return min;
+            if (f.CompareTo(max) > 0)
+                return max;
+            return f;
+        }
+
+        public static double Clamp01(this double f)
+        {
+            if (f.CompareTo(0f) < 0)
+                return 0f;
+            if (f.CompareTo(1f) > 0)
+                return 1f;
+            return f;
+        }
     } 
 }
