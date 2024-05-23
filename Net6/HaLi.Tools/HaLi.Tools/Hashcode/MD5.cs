@@ -5,6 +5,6 @@ namespace HaLi.Tools.Hashcode;
 
 public sealed class MD5 : HashManaged
 {
-    private SSC.MD5 _hash = SSC.MD5.Create();
+    private readonly SSC.MD5 _hash = SSC.MD5.Create();
     protected override HashAlgorithm Algorithm => _hash;
 }
