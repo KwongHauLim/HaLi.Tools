@@ -17,7 +17,7 @@ public class Hash
 
     private Hash()
     {
-        Algorithm = new SHA1();
+        Algorithm = new SHA256();
     }
 
     public static string GetHash(string str)
