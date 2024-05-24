@@ -20,7 +20,8 @@ To calculate hash of binary, string, integer or from stream....
 
 
 ### Config
- Use Sha1 (Default)
+ Default is SHA256, but you can change to MD5 or other hash algorithm</br>
+ Use Sha1 
 
     Hash.Share.Algorithm = new HaLi.Tools.Hashcode.SHA1
     {
@@ -28,7 +29,7 @@ To calculate hash of binary, string, integer or from stream....
 	    UpperCase = true
     };
 
-  Use MD5
+ Use MD5
 
     Hash.Share.Algorithm = new HaLi.Tools.Hashcode.MD5
     {

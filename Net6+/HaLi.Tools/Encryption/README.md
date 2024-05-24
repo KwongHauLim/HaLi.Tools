@@ -17,12 +17,12 @@ Use AES (Default)
     // there have out byte[] version, but string seems more convenience
     // !!! this is sample, MUST not generate everytime
     // use record KEY & IV for decrypt
-    AES.GenerateKey(out key, out iv);
+    AES.Helper.GenerateKey(out key, out iv);
     
     // Set use AES
     Crypto.Share.Algorithm = new AES
     {
-        Secret = new AES.CryptoBook(key, iv)
+        Secret = new CryptoBook(key, iv)
     };
     
 Use Cipher</br>
@@ -37,7 +37,7 @@ This is very simple convertion, use a table which map a byte value change to ano
     // Set to use Cipher
     Crypto.Share.Algorithm = new Cipher
     {
-        Secret = new Cipher.CryptoBook(key)
+        Secret = new Cipher.CipherBook(key)
     };
     
 Use GZip</br>
