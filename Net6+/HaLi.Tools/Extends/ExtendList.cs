@@ -133,6 +133,18 @@ public static class ExtendList
         }
     }
 
+    public static T Pop<T>(this List<T> list)
+    {
+        if (list.Count>0)
+        {
+            int index = list.Count - 1;
+            T item = list[index];
+            list.RemoveAt(index);
+            return item;
+        }
+        return default;
+    }
+
     public static List<T> Migrate<T>(this List<T> list, List<T> other)
     {
         var tmp = new List<T>();
