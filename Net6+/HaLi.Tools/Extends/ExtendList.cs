@@ -133,6 +133,19 @@ public static class ExtendList
         }
     }
 
+    public static void Fill<T>(this List<T> list)
+        where T : new()
+        => Fill(list, list.Capacity);
+
+    public static void Fill<T>(this List<T> list, int count)
+        where T : new()
+    {
+        while (list.Count < count)
+        {
+            list.Add(new T());
+        }
+    }
+
     public static T Pop<T>(this List<T> list)
     {
         if (list.Count>0)
