@@ -17,7 +17,7 @@ public class Jump
 
     private Jump() { }
 
-    public Jump(int digits) : this(digits, Primes.Generate(digits))
+    public Jump(int digits) : this((int)Math.Pow(10, digits), Primes.Generate(digits))
     {
         
     }
