@@ -66,7 +66,7 @@ public sealed class RNG
         int r = 0;
         Share.Pool.DoAsync((rand) =>
         {
-            r = (int)(rand.Double * (max - min) + min);
+            r = (int)Math.Round(rand.Double * (max - min) + min);
         }).Wait();
         return r;
     }
