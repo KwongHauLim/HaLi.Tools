@@ -3,7 +3,9 @@
     public interface ICrypto
     {
         string Encrypt(string str);
+        byte[] Encrypt(byte[] data);
         string Decrypt(string str);
+        byte[] Decrypt(byte[] data);
     }
 
     public class Crypto
@@ -21,7 +23,13 @@
         public static string Encrypt(string str)
             => Share.Algorithm.Encrypt(str);
 
+        public static byte[] Encrypt(byte[] data)
+            => Share.Algorithm.Encrypt(data);
+
         public static string Decrypt(string str)
             => Share.Algorithm.Decrypt(str);
+
+        public static byte[] Decrypt(byte[] data)
+            => Share.Algorithm.Decrypt(data);
     }
 }

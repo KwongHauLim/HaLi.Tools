@@ -15,10 +15,20 @@ namespace HaLi.Tools.Encryption
             return Encoding.GetString(Decompress(bin));
         }
 
+        public byte[] Decrypt(byte[] data)
+        {
+            return Decompress(data);
+        }
+
         public string Encrypt(string str)
         {
             byte[] bin = Encoding.GetBytes(str);
             return Convert.ToBase64String(Compress(bin));
+        }
+
+        public byte[] Encrypt(byte[] data)
+        {
+            return Compress(data);
         }
 
         public byte[] Compress(byte[] binary)

@@ -31,6 +31,18 @@ namespace HaLi.Tools.Encryption
             return str;
         }
 
+        public byte[] Encrypt(byte[] data)
+        {
+            using (ICryptoTransform encryptor = CreateEncryptor())
+            using (MemoryStream msEncrypt = new MemoryStream())
+            using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+            {
+                csEncrypt.Write(data, 0, data.Length);
+                csEncrypt.FlushFinalBlock();
+                return msEncrypt.ToArray();
+            }
+        }
+
         public string Decrypt(string str)
         {
             using (ICryptoTransform decryptor = CreateDecryptor())
@@ -41,6 +53,18 @@ namespace HaLi.Tools.Encryption
                 str = srDecrypt.ReadToEnd();
             }
             return str;
+        }
+
+        public byte[] Decrypt(byte[] data)
+        {
+            using (ICryptoTransform decryptor = CreateDecryptor())
+            using (MemoryStream msDecrypt = new MemoryStream(data))
+            using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+            using (MemoryStream ms = new MemoryStream())
+            {
+                csDecrypt.CopyTo(ms);
+                return ms.ToArray();
+            }
         }
     }
 }

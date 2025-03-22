@@ -78,6 +78,17 @@ namespace HaLi.Tools.Encryption
             return Convert.ToBase64String(bin);
         }
 
+        public byte[] Encrypt(byte[] data)
+        {
+            byte[] bin = new byte[data.Length];
+            Array.Copy(data, bin, data.Length);
+            for (int i = 0; i < bin.Length; i++)
+            {
+                bin[i] = Secret.Forward[bin[i]];
+            }
+            return bin;
+        }
+
         public string Decrypt(string str)
         {
             byte[] bin = Convert.FromBase64String(str);
@@ -86,6 +97,17 @@ namespace HaLi.Tools.Encryption
                 bin[i] = Secret.Reverse[bin[i]];
             }
             return Encoding.GetString(bin);
+        }
+
+        public byte[] Decrypt(byte[] data)
+        {
+            byte[] bin = new byte[data.Length];
+            Array.Copy(data, bin, data.Length);
+            for (int i = 0; i < bin.Length; i++)
+            {
+                bin[i] = Secret.Reverse[bin[i]];
+            }
+            return bin;
         }
     }
 }
