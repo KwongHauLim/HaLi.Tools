@@ -100,6 +100,22 @@ public static class ExtendList
         }
     }
 
+    public static void LoopWithDelete<T>(this List<T> list, Func<T, bool> fn)
+    {
+        int i = 0;
+        while (i < list.Count)
+        {
+            if (fn(list[i]))
+            {
+                list.RemoveAt(i);
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+
     public static IEnumerable<T> ExceptNull<T>(this List<T> list) where T : class
         => Condition(list, (item) => item != null);
 
