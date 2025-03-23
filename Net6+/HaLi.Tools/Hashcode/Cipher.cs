@@ -5,6 +5,7 @@ namespace HaLi.Tools.Hashcode;
 
 public sealed class Cipher : IHashCalc
 {
+    public static readonly Cipher Shared = new Cipher();
     public string Secret { get; set; }
     public bool UpperCase { get; set; } = true;
 

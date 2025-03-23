@@ -17,7 +17,7 @@ public class Hash
 
     private Hash()
     {
-        Algorithm = new SHA256();
+        Algorithm = SHA256.Shared;
     }
 
     public static string GetHash(string str)

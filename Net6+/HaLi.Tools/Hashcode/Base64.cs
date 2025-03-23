@@ -5,6 +5,7 @@ namespace HaLi.Tools.Hashcode;
 
 public sealed class Base64 : IHashCalc
 {
+    public static readonly Base64 Shared = new Base64();
     public string ToBase64(int num)
     {
         byte[] base64 = new byte[8]
