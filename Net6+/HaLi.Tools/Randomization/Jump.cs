@@ -1,9 +1,4 @@
 ﻿using HaLi.Tools.Maths;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HaLi.Tools.Randomization;
 
@@ -32,12 +27,13 @@ public class Jump
         Last = RNG.Next(0, Maximum);
         Start = Last;
         // Check max is Power of 10
-        isPow = (Maximum & (Maximum - 1)) == 0;
+        isPow = (Maximum & 1) == 0;
     }
 
-    public static Jump ReadFromStream(Stream stream)
+    public static Jump ReadFromStream(Stream stream, int index)
     {
         var j = new Jump();
+        stream.Seek(index * 16, SeekOrigin.Begin);
 
         byte[] buffer = new byte[4];
         stream.Read(buffer, 0, 4);
@@ -49,7 +45,9 @@ public class Jump
         stream.Read(buffer, 0, 4);
         j.Remain = BitConverter.ToInt32(buffer, 0);
 
-        int digits = j.Maximum.ToString().Length;
+        //int digits = j.Maximum.ToString().Length;
+        // Check max is Power of 10
+        j.isPow = (j.Maximum & 1) == 0;
 
         return j;
     }
@@ -73,7 +71,9 @@ public class Jump
             }
             else
             {
-                Last = --Start;
+                if (++Start >= Maximum)
+                    Start = 0;
+                Last = Start;
             }
         }
         Remain--;
