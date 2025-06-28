@@ -41,6 +41,8 @@ public class Jump
         stream.Read(buffer, 0, 4);
         j.Maximum = BitConverter.ToInt32(buffer, 0);
         stream.Read(buffer, 0, 4);
+        j.Start = BitConverter.ToInt32(buffer, 0);
+        stream.Read(buffer, 0, 4);
         j.Last = BitConverter.ToInt32(buffer, 0);
         stream.Read(buffer, 0, 4);
         j.Remain = BitConverter.ToInt32(buffer, 0);
@@ -56,6 +58,7 @@ public class Jump
     {
         stream.Write(BitConverter.GetBytes(jump.Prime), 0, 4);
         stream.Write(BitConverter.GetBytes(jump.Maximum), 0, 4);
+        stream.Write(BitConverter.GetBytes(jump.Start), 0, 4);
         stream.Write(BitConverter.GetBytes(jump.Last), 0, 4);
         stream.Write(BitConverter.GetBytes(jump.Remain), 0, 4);
     }
