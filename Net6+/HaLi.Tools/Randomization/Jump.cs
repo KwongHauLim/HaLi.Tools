@@ -21,7 +21,10 @@ public class Jump
     public Jump(int max, int start)
     {
         int digits = max.ToString().Length;
-        Prime = Primes.Generate(digits);
+        do
+        {
+            Prime = Primes.Generate(digits);
+        } while (max % Prime > 0);
         Maximum = max;
         Remain = Maximum;
         Start = Last = start;
