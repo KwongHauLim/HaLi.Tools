@@ -10,24 +10,21 @@ public class Jump
     public int Last { get; private set; }
     public int Remain { get; private set; }
     public bool IsAvailable => Remain > 0;
-    private bool isPow = false;
 
     private Jump() { }
 
-    public Jump(int digits) : this((int)Math.Pow(10, digits), Primes.Generate(digits))
+    public Jump(int digits) : this((int)Math.Pow(10, digits), 0)
     {
-        isPow = true;
+        Start = Last = RNG.Next(0, Maximum);
     }
 
-    public Jump(int max, int prime)
+    public Jump(int max, int start)
     {
-        Prime = prime;
+        int digits = max.ToString().Length;
+        Prime = Primes.Generate(digits);
         Maximum = max;
         Remain = Maximum;
-        Last = RNG.Next(0, Maximum);
-        Start = Last;
-        // Check max is Power of 10
-        isPow = (Maximum & 1) == 0;
+        Start = Last = start;
     }
 
     public static Jump ReadFromStream(Stream stream, int index)
@@ -47,10 +44,6 @@ public class Jump
         stream.Read(buffer, 0, 4);
         j.Remain = BitConverter.ToInt32(buffer, 0);
 
-        //int digits = j.Maximum.ToString().Length;
-        // Check max is Power of 10
-        j.isPow = (j.Maximum & 1) == 0;
-
         return j;
     }
 
@@ -68,16 +61,7 @@ public class Jump
         Last += Prime;
         if (Last >= Maximum)
         {
-            if (isPow)
-            {
-                Last %= Maximum;
-            }
-            else
-            {
-                if (++Start >= Maximum)
-                    Start = 0;
-                Last = Start;
-            }
+            Last %= Maximum;
         }
         Remain--;
         return Last;

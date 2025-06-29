@@ -19,12 +19,19 @@ public static class Primes
         int upperBound = (int)Math.Pow(10, digits) - 1;
 
         Random random = new Random();
-        int prime;
+        int prime = 0;
 
-        do
+        while (!IsPrime(prime))
         {
             prime = random.Next(lowerBound, upperBound);
-        } while (!IsPrime(prime));
+            if (IsPrime(prime)) break;
+
+            for (var i = 1; i <= 100; i++)
+            {
+                if (IsPrime(prime - i)) { prime = prime - i; break; }
+                if (IsPrime(prime + i)) { prime = prime + i; break; }
+            }
+        }
 
         return prime;
     }

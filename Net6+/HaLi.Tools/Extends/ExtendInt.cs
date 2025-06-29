@@ -82,4 +82,22 @@ public static class ExtendInt
     public static uint Dec(this uint i) { return i.Sub(1); }
     public static long Dec(this long i) { return i.Sub(1); }
     public static ulong Dec(this ulong i) { return i.Sub(1); }
+
+
+    public static bool IsPowerOfTwo(this int number)
+    {
+        if (number < 1) return false;
+        return (number & (number - 1)) == 0;
+    }
+    public static bool IsPowerOfTen(this int number)
+    {
+        if (number < 1) return false;
+
+        while (number % 10 == 0)
+        {
+            number /= 10;
+        }
+
+        return number == 1;
+    }
 }
