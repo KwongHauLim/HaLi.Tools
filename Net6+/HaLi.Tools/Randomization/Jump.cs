@@ -20,11 +20,11 @@ public class Jump
 
     public Jump(int max, int start)
     {
-        int digits = max.ToString().Length;
+        int digits = max.ToString().Length - 1;
         do
         {
             Prime = Primes.Generate(digits);
-        } while (max % Prime > 0);
+        } while (max % Prime == 0);
         Maximum = max;
         Remain = Maximum;
         Start = Last = start;
